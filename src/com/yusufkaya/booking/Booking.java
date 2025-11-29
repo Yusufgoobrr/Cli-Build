@@ -1,16 +1,15 @@
 package com.yusufkaya.booking;
 
 import com.yusufkaya.user.User;
-import com.yusufkaya.car.Car; // You'll need to import your Car class
-
+import com.yusufkaya.car.Car;
 import java.util.Date;
-import java.util.Objects;
+import java.util.UUID;
 
 public class Booking {
     private String bookingId;
     private Date bookingDate;
     private User bookedUser;
-    private Car bookedCar; // Changed from User to Car
+    private Car bookedCar;
 
     public Booking() {
     }
@@ -22,60 +21,18 @@ public class Booking {
         this.bookedCar = bookedCar;
     }
 
-    public String getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(String bookingId) {
-        this.bookingId = bookingId;
-    }
-
-    public Date getBookingDate() {
-        return bookingDate;
-    }
-
-    public void setBookingDate(Date bookingDate) {
-        this.bookingDate = bookingDate;
-    }
-
-    public User getBookedUser() {
-        return bookedUser;
-    }
-
-    public void setBookedUser(User bookedUser) {
-        this.bookedUser = bookedUser;
-    }
-
-    public Car getBookedCar() {
-        return bookedCar;
-    }
-
-    public void setBookedCar(Car bookedCar) {
-        this.bookedCar = bookedCar;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Booking booking = (Booking) o;
-        return Objects.equals(bookingId, booking.bookingId) &&
-                Objects.equals(bookingDate, booking.bookingDate) &&
-                Objects.equals(bookedUser, booking.bookedUser) &&
-                Objects.equals(bookedCar, booking.bookedCar);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookingId, bookingDate, bookedUser, bookedCar);
-    }
+    // Getters and setters
+    public String getBookingId() { return bookingId; }
+    public void setBookingId(String bookingId) { this.bookingId = bookingId; }
+    public Date getBookingDate() { return bookingDate; }
+    public void setBookingDate(Date bookingDate) { this.bookingDate = bookingDate; }
+    public User getBookedUser() { return bookedUser; }
+    public void setBookedUser(User bookedUser) { this.bookedUser = bookedUser; }
+    public Car getBookedCar() { return bookedCar; }
+    public void setBookedCar(Car bookedCar) { this.bookedCar = bookedCar; }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookingId='" + bookingId + '\'' +
-                ", bookingDate=" + bookingDate +
-                ", bookedUser=" + bookedUser +
-                ", bookedCar=" + bookedCar +
-                '}';
+        return "Booking{id='" + bookingId + "', user=" + bookedUser.getFirstName() + ", car=" + bookedCar.getBrand() + " " + bookedCar.getModel() + "}";
     }
 }
